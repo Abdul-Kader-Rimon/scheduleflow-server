@@ -6,7 +6,9 @@ const slotSchema = new mongoose.Schema({
   startTime: { type: String, required: true }, 
   endTime: { type: String, required: true },
   duration: { type: Number, default: 15 },
-  status: { type: String, enum: ['Available', 'Booked'], default: 'Available' }
+ status: { type: String, default: 'Available' },
+  studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  bookedBy: { type: String }
 }, { timestamps: true,
     versionKey: false
  });

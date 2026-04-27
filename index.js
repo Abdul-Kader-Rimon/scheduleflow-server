@@ -21,6 +21,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use('/api/slots', slotRoutes);
 
+
 app.get("/", (req, res) => {
   res.send("ScheduleFlow Server is running smoothly!");
 });

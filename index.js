@@ -5,6 +5,7 @@ const dns = require("node:dns/promises");
 
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
+const slotRoutes = require('./routes/slotRoutes');
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // routes
 app.use("/api/users", userRoutes);
+app.use('/api/slots', slotRoutes);
 
 app.get("/", (req, res) => {
   res.send("ScheduleFlow Server is running smoothly!");
@@ -25,8 +27,8 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, () => {
-//   console.log(`Server started on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
 
 module.exports = app;
